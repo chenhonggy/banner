@@ -5,13 +5,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.banner.main.easybanner.Banner;
 
-public class Banner extends Activity {
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MainActivity extends Activity {
+    private Banner banner;
+    private List<Integer> imagelist = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner);
+        setContentView(R.layout.activity_main);
+
+        imagelist.add(R.drawable.a);
+        imagelist.add(R.drawable.b);
+        imagelist.add(R.drawable.c);
+        imagelist.add(R.drawable.c);
+        imagelist.add(R.drawable.c);
+        banner = (Banner)findViewById(R.id.banner);
+        banner.initImage(imagelist);
     }
 
 

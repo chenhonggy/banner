@@ -20,13 +20,13 @@
         />      
 #####主程序里面
 在主程序的Oncreate方法里面调用initImage方法<br>
-  imagelist.add(R.drawable.a);
+        imagelist.add(R.drawable.a);
         imagelist.add(R.drawable.b);
         imagelist.add(R.drawable.c);
         imagelist.add(R.drawable.c);
         imagelist.add(R.drawable.c);
         banner = (Banner)findViewById(R.id.banner);
-        banner.initImage(imagelist);                     
+        banner.initImage(imagelist);                             
         
 ####设置监听
 在主程序里面加上下一句话即可：

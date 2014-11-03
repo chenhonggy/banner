@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.banner.main.easybanner.Banner;
 
@@ -27,6 +29,13 @@ public class MainActivity extends Activity {
         imagelist.add(R.drawable.c);
         banner = (Banner)findViewById(R.id.banner);
         banner.initImage(imagelist);
+
+        banner.setItemListenner(new Banner.OnItemListenner() {
+            @Override
+            public void OnChecked(View v, int position) {
+                Toast.makeText(MainActivity.this,position+"",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

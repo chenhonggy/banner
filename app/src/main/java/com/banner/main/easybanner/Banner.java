@@ -55,6 +55,17 @@ public class Banner extends RelativeLayout implements ViewPager.OnPageChangeList
 
     private LinearLayout.LayoutParams params;
 
+    private OnItemListenner listenner;
+    private int imageposition = 0;
+
+    public interface OnItemListenner{
+        public void OnChecked(View v, int position);
+    }
+
+    public void setItemListenner(OnItemListenner listenner){
+        this.listenner = listenner;
+    }
+
     public Banner(Context context, AttributeSet attrs) {
         super(context, attrs);
         initHandler();
@@ -112,7 +123,15 @@ public class Banner extends RelativeLayout implements ViewPager.OnPageChangeList
             view.setEnabled(false);
             view.setLayoutParams(params);
             point_group.addView(view); // 向线性布局中添加“点”
+
+            singleImageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listenner.OnChecked(singleImageView,imageposition);
+                }
+            });
         }
+
         viewPager.setAdapter(new MyAdapter());
         viewPager.setOnPageChangeListener(this);
         point_group.getChildAt(0).setEnabled(true);
@@ -132,6 +151,8 @@ public class Banner extends RelativeLayout implements ViewPager.OnPageChangeList
         });
         myThread.start();
     }
+
+
 
     //banner的适配器
     class MyAdapter extends PagerAdapter {
@@ -197,6 +218,7 @@ public class Banner extends RelativeLayout implements ViewPager.OnPageChangeList
         point_group.getChildAt(preEnablePositon).setEnabled(false);
         point_group.getChildAt(newPositon).setEnabled(true);
         preEnablePositon = newPositon;
+        imageposition = newPositon;
 
     }
 }

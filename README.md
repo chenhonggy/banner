@@ -9,7 +9,7 @@
 #####手动安装
         1. 复制layout文件夹下class_banner.xml文件到自己layout目录下面。
         2. 复制drawable下面point_background.xml、point_bg_enable.xml、point_bg_normal.xml到自己drawable目录下
-        3.复制easybanner文件夹下面Banner类到自己工文件中。
+        3. 复制easybanner文件夹下面Banner类到自己工文件中。
                 
 ####开始编码
 #####xml文件
